@@ -1,14 +1,6 @@
-// You have generated a new plugin project without specifying the `--platforms`
-// flag. A plugin project with no platform support was generated. To add a
-// platform, run `flutter create -t plugin --platforms <platforms> .` under the
-// same directory. You can also find a detailed instruction on how to add
-// platforms in the `pubspec.yaml` at
-// https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+library flutter_multi_table;
 
-import 'flutter_multi_table_platform_interface.dart';
-
-class FlutterMultiTable {
-  Future<String?> getPlatformVersion() {
-    return FlutterMultiTablePlatform.instance.getPlatformVersion();
-  }
-}
+// ===========Export Library =========
+export 'src/controller/flutter_multi_table_controller.dart';
+export 'src/model/flutter_multi_table_model.dart';
+export 'src/widget/flutter_multi_table_widget.dart';
