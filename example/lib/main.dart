@@ -77,17 +77,16 @@ class _MyHomePageState extends State<MyHomePage> {
       'Status',
     ];
 
-    // Inisialisasi _config setelah konteks telah tersedia
+    // Initialize _config once the context is available
     _config = FlutterMultiTableConfig(
       headers: headers,
       hint: '....',
       validator: (row, column, value) {
+        // Default validation for other columns if needed
         if (column == 2 && (value.isEmpty)) {
-          return 'Data wajib diisi'; // Kolom 3 ('Hasil') harus diisi
+          return 'Data wajib diisi'; // Column 3 ('Results') is required
         }
-
-        // Validasi default untuk kolom lain jika diperlukan
-        return null; // Tidak ada pesan error jika validasi lolos
+        return null;
       },
       dropdownValidator: (row, column, value) {
         if (column == 2 && (value == null || value.isEmpty)) {
@@ -113,6 +112,8 @@ class _MyHomePageState extends State<MyHomePage> {
         fontWeight: FontWeight.w400,
       ),
       isReadOnly: (row, column) {
+        // Callback to determine if a cell is read-only.
+        // Column and Row range starts from 0-5.
         if (column == 0 || column == 1 || column == 3 || column == 4) {
           return true;
         }
@@ -120,16 +121,13 @@ class _MyHomePageState extends State<MyHomePage> {
       },
       isDropdown: (row, column) {
         // Define conditions when the dropdown should be used
-
-        // Range Column 0-5
-        // for portraits maximum 5 tables
-        // Define conditions when the dropdown should be used
+        // Column and Row range starts from 0-100
         if (column == 2 && (row != 1 && row != 13)) {
           return true;
         }
         return false;
       },
-      dropdownOptions: ['New York', 'London', 'Tokyo', 'Paris'],
+      dropdownOptions: ['Jakarta', 'New York', 'London', 'Tokyo', 'Paris'],
       onChanged: (row, column, value) {
         debugPrint('Changed: Row $row, Column $column, Value: $value');
         // List<Map<String, String>> updatedTableData = List.from(state.tableData);
