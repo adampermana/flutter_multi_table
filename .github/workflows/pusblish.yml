@@ -17,7 +17,7 @@ jobs:
     steps:
       # 📚 Langkah pertama: Checkout repository
       - name: 📚 Checkout
-        uses: actions/checkout@v3 # Menggunakan action resmi untuk checkout kode dari repo.
+        uses: actions/checkout@v4 # Menggunakan action resmi untuk checkout kode dari repo.
 
       # 🎯 Langkah kedua: Setup Flutter SDK
       - name: Setup Flutter 🎯
